@@ -7,6 +7,7 @@ import { LanguageClient,
 	ServerOptions,
 	TransportKind } from "vscode-languageclient/node";
 import { FileState } from "./data/FileState";
+import path from "path";
 
 let client: LanguageClient;
 
@@ -19,10 +20,10 @@ export async function sendRequest<R>(method: string, param: any): Promise<R> {
 }
 
 
-export async function start() {
+export async function start(context: vscode.ExtensionContext) {
 	const serverOptions: ServerOptions = {
-		run: { command: "gcl", transport: TransportKind.stdio },
-		debug: { command: "gcl" , transport: TransportKind.stdio }
+		run: { command: path.join(context.extensionPath, "gcl"), transport: TransportKind.stdio },
+		debug: { command: path.join(context.extensionPath, "gcl") , transport: TransportKind.stdio }
 	};
 
 	// Options to control the language client

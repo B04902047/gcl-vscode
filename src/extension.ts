@@ -109,7 +109,7 @@ export async function activate(context: vscode.ExtensionContext) {
 	});
 	context.subscriptions.push(refineDisposable);
 
-	await start();
+	await start(context);
 
 	const updateNotificationHandlerDisposable = onUpdateNotification(async ({
 		filePath,

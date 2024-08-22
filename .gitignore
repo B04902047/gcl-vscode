@@ -10,4 +10,5 @@ node_modules
 vsc-extension-quickstart.md
 **/.eslintrc.json
 
+gcl.exe
 server_log.txt
